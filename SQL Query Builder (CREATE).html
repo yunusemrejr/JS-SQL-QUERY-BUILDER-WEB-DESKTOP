@@ -1,0 +1,620 @@
+ <script>
+  /* ///////////////////////BU KODU SİLMEYİ UNUTMA, PLACEHOLDER BU
+
+       document.getElementById('main-wrapper').remove();
+         
+       alert('hey there, this page is still something I\'m working on right now. please come back later! Thanks. ~yunus');
+   
+        setTimeout(function(){
+          
+                document.write('<p style="font-size:35px;font-family:arial;color:orange;background-color:black;padding-left:5px;">hey! Haven\'t I told you to come back later?!</p><style>*{background-color:black;}</style><img src="https://www.icegif.com/wp-content/uploads/ace-ventura-loser-icegif-1.gif">');
+
+          
+          
+        }
+                           ,10000);
+   
+   
+   setTimeout(function(){
+   
+   
+   window.location.href='https://yunusemrevurgun.com';
+   
+   
+   
+   },17000);
+   
+///////////////////////BU KODU SİLMEYİ UNUTMA, PLACEHOLDER BU
+*/
+</script>
+
+
+
+
+
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" referrerpolicy="no-referrer" rel="stylesheet"></link>
+
+
+<style>
+   .menuItem{
+     
+     
+    display:none; 
+     
+        max-width:150px !important;
+        min-width:150px !important;
+   }
+   
+   #dropButton{
+     
+     
+    color:white;
+     background-color:#2E3C66;
+     border:0px solid #0000;
+     border-radius: 5px;
+     padding: 6px 12px 6px 12px;
+     font-size:20px;
+           
+     
+   }
+  
+  #buttonsDiv{
+    
+    display:inline;
+        padding:4px;
+
+  }
+  
+  
+  .optionbuttons{
+    
+    
+    padding-left:4px;
+       padding-right:4px;
+    border:0px;
+    border-radius:5px;
+    font-size:15px;
+  }
+  
+  #table_creation_related_fields{
+    
+    display:none;
+    
+    
+  }
+  
+  
+  #txtareaqueryresultstable{
+    
+    
+    resize:none;
+    width:30vw;
+    height:30vh;
+    font-family:arial;
+    font-size:15px;
+    
+  }
+</style>
+
+<script>
+  
+  let binaryElement = 0;
+  
+       document.getElementById('main-wrapper').style.display='';
+ 
+     
+
+         let postHeaderClass = document.getElementsByClassName('post-header');
+       let ourpostHeaderElement = postHeaderClass[0];
+  
+  
+        
+
+  
+  
+ourpostHeaderElement.innerHTML='<div style="padding-top:1vw;color: white; text-align: center;  text-shadow: orange 1px 1px 1px, blue 0px 1px 1px, rgb(0, 0, 0) 2px 1px 1px;"> <h1 style="color:white; " class="post-title"><i class="fa-solid fa-database"></i> &nbsp; SQL Query Builder (CREATE)</h1><p>SQL Query Builder is a web tool programmed by Yunus Emre Vurgun, that helps you build SQL queries.</p>' 
+  
+ 
+ 
+  + '<div id="buttonsDiv"><br><br><p>What do you want to create?</p><br><br> <button class="optionbuttons" onclick="clickedTable()" id="table">Table</button>&nbsp;&nbsp; '
+  
+    + '  <button  class="optionbuttons" onclick="clickedDB()" id="Database">Database</button> &nbsp;&nbsp;'
+  
+      + '   <button class="optionbuttons" onclick="clickedIndex()" id="Index">Index</button> &nbsp;&nbsp;'
+  
+      + '   <button class="optionbuttons" onclick="clickedUniqueIndex()" id="Unique_Index">Unique Index</button>&nbsp;&nbsp; '
+
+        + '  <button class="optionbuttons" onclick="clickedProcedure()" id="Procedure">Procedure</button> &nbsp;&nbsp;'
+  
+  
+// TABLE CREATION RELATED CONTENT START
+  
+        + ' <div id="table_creation_related_fields"><br><br><p>Your wanted table name: </p> <input type="text" id="tablenamefield"/>'
+        + ' <br><br><p>Column amount: </p> <input type="number" min="1" max="20" id="tablecolumnamount"/><br><br>'
+        + ' <button  class="optionbuttons"  onclick="table_nextStep()" id="nextstep">Next Step</button> </div>'
+  
+// TABLE CREATION RELATED CONTENT END
+
+  
+  +' </div> &nbsp;&nbsp;</div>';
+ 
+
+  function clickedTable(){
+    
+    
+               document.getElementById('table_creation_related_fields').style.display='block';
+           document.getElementById('table').style.border='3px solid orange';
+
+      document.getElementById('Database').style.opacity='0.5';
+      document.getElementById('Index').style.opacity='0.5';
+      document.getElementById('Unique_Index').style.opacity='0.5';
+       document.getElementById('Procedure').style.opacity='0.5';
+    
+    
+    
+         document.getElementById('Database').setAttribute('onclick','#');
+      document.getElementById('Index').setAttribute('onclick','#');
+      document.getElementById('Unique_Index').setAttribute('onclick','#');
+       document.getElementById('Procedure').setAttribute('onclick','#');
+    
+    
+    
+    
+    
+
+   }
+  
+ 
+function clickedDB(){
+  
+    document.getElementById('Database').style.border='3px solid orange';
+
+      document.getElementById('table').style.opacity='0.5';
+      document.getElementById('Index').style.opacity='0.5';
+      document.getElementById('Unique_Index').style.opacity='0.5';
+       document.getElementById('Procedure').style.opacity='0.5';
+    
+    
+    
+         document.getElementById('table').setAttribute('onclick','#');
+      document.getElementById('Index').setAttribute('onclick','#');
+      document.getElementById('Unique_Index').setAttribute('onclick','#');
+       document.getElementById('Procedure').setAttribute('onclick','#');
+
+  
+}
+  
+  
+   
+function clickedIndex(){
+  
+ document.getElementById('Index').style.border='3px solid orange';
+
+      document.getElementById('table').style.opacity='0.5';
+      document.getElementById('Database').style.opacity='0.5';
+      document.getElementById('Unique_Index').style.opacity='0.5';
+       document.getElementById('Procedure').style.opacity='0.5';
+    
+    
+    
+         document.getElementById('table').setAttribute('onclick','#');
+      document.getElementById('Database').setAttribute('onclick','#');
+      document.getElementById('Unique_Index').setAttribute('onclick','#');
+       document.getElementById('Procedure').setAttribute('onclick','#');
+
+  
+}
+  
+   
+function clickedUniqueIndex(){
+    
+  document.getElementById('Unique_Index').style.border='3px solid orange';
+
+      document.getElementById('table').style.opacity='0.5';
+      document.getElementById('Database').style.opacity='0.5';
+      document.getElementById('Index').style.opacity='0.5';
+       document.getElementById('Procedure').style.opacity='0.5';
+    
+    
+    
+         document.getElementById('table').setAttribute('onclick','#');
+      document.getElementById('Database').setAttribute('onclick','#');
+      document.getElementById('Index').setAttribute('onclick','#');
+       document.getElementById('Procedure').setAttribute('onclick','#');
+
+  
+  
+}
+  
+   
+function clickedProcedure(){
+  
+     document.getElementById('Procedure').style.border='3px solid orange';
+
+      document.getElementById('table').style.opacity='0.5';
+      document.getElementById('Database').style.opacity='0.5';
+      document.getElementById('Index').style.opacity='0.5';
+       document.getElementById('Unique_Index').style.opacity='0.5';
+    
+    
+    
+         document.getElementById('table').setAttribute('onclick','#');
+      document.getElementById('Database').setAttribute('onclick','#');
+      document.getElementById('Index').setAttribute('onclick','#');
+       document.getElementById('Unique_Index').setAttribute('onclick','#');
+
+
+  
+}
+
+  
+  
+  
+  ////////////////TABLE SECTION NEXT BUTTON
+let  col_len=[];
+let select=[];
+let col_name=[];
+ let cols;  
+  let tab_nam;
+   
+  
+  function table_nextStep(){
+    
+    let col_amo =  document.getElementById('tablecolumnamount');
+     tab_nam = document.getElementById('tablenamefield');
+    
+    
+    let forbiddenChar = false;
+    
+    let passCard = 'green';
+    
+    let arrayOfForbidden = ['\'','"','@','.',',','-','&','%','/','\\','(',')','+','!','^','=',':',';',' ', '#'];
+                           
+                           
+                          
+    
+    let arrayOfForbiddenKeyWords =['BEFORE', 'BEGIN', 'BETWEEN', 'BORDER', 'BY', 'CALL', 'CACHED_PROCEDURES', 'CASCADE', 'CASE', 'CAST', 'CHECK', 'CLOSE', 'COALESCE', 'COLLATE', 'COLUMN', 'COMMIT', 'COMMITTED', 'CONSTRAINT', 'CONVERT', 'COUNT', 'CREATE', 'CREATESP', 'CREATETAB', 'CREATEVIEW', 'CROSS', 'CS', 'CURDATE', 'CURRENT', 'CURSOR', 'CURTIME', 'DATA_PATH', 'DATABASE', 'DATETIMEMILLISECONDS', 'DBO', 'DBSEC_AUTHENTICATION', 'DBSEC_AUTHORIZATION', 'DCOMPRESS', 'DDF', 'DECIMALSEPARATORCOMMA', 'DECLARE', 'DEFAULT', 'DEFAULTCOLLATE', 'DELETE', 'DENY', 'DESC', 'DIAGNOSTICS', 'DICTIONARY', 'DICTIONARY_PATH', 'DISTINCT', 'DO', 'DROP', 'DSN', 'EACH', 'ELSE', 'ENCODING', 'END', 'ENFORCED', 'EX', 'EXCLUSIVE', 'EXEC', 'EXECUTE', 'EXISTING', 'EXISTS', 'EXPR', 'FETCH', 'FILES', 'FN', 'FOR', 'FOREIGN', 'FROM', 'FULL', 'FUNCTION', 'GLOBAL_QRYPLAN', 'GRANT', 'GROUP', 'HANDLER', 'HAVING', 'IF', 'IN', 'INDEX', 'INNER', 'INOUT', 'INSERT', 'INTEGRITY', 'INTERNAL', 'INTO', 'IS', 'ISOLATION', 'JOIN', 'KEY', 'LEAVE', 'LEFT', 'LEGACYOWNERNAME', 'LEVEL', 'LIKE', 'LIMIT', 'LINKDUP', 'LOGIN', 'LOOP', 'MAX', 'MIN', 'MODE', 'MODIFIABLE', 'MODIFY', 'NEW', 'NEXT', 'NO', 'NO_REFERENTIAL_INTEGRITY', 'NORMAL', 'NOT', 'NOW', 'NULL', 'OF', 'OFF', 'OFFSET', 'OLD', 'ON', 'ONLY', 'OPEN', 'OPTINNERJOIN', 'OR', 'ORDER', 'OUT', 'OUTER', 'OWNER', 'PAGESIZE', 'PARTIAL', 'PASSWORD', 'PCOMPRESS', 'PRED', 'PRIMARY', 'PRINT', 'PROCEDURE', 'PROCEDURES_CACHE', 'PSQL_MOVE', 'PSQL_PHYSICAL', 'PSQL_POSITION', 'PUBLIC', 'QRYPLAN', 'QRYPLANOUTPUT', 'READ', 'REFERENCES', 'REFERENCING', 'RELATIONAL', 'RELEASE', 'RENAME', 'REPEAT', 'REPEATABLE', 'REPLACE', 'RESTRICT', 'RETURN', 'RETURNS', 'REUSE_DDF', 'REVERSE', 'REVOKE', 'RIGHT', 'ROLLBACK', 'ROW', 'ROWCOUNT', 'ROWCOUNT2', 'SAVEPOINT', 'SECURITY', 'SELECT', 'SERIALIZABLE', 'SESSIONID', 'SET', 'SIGNAL', 'SIZE', 'SPID', 'SQLSTATE', 'SSP_EXPR', 'SSP_PRED', 'START', 'STDEV', 'SUM', 'SVBEGIN', 'SVEND', 'TABLE', 'THEN', 'TO', 'TOP', 'TRANSACTION', 'TRIGGER', 'TRIGGERSTAMPMISC', 'TRUEBITCREATE', 'TRUENULLCREATE', 'TRY_CAST', 'TS', 'UNCOMMITTED', 'UNION', 'UNIQUE', 'UNIQUEIDENTIFIER', 'UNTIL', 'UPDATE', 'USER', 'USING', 'V1_METADATA', 'V2_METADATA', 'VALUES', 'VIEW', 'WHEN', 'WHERE', 'WHILE', 'WITH', 'WORK', 'WRITE', 'ABSOLUTE', 'ACTION', 'ADD', 'ALL', 'ALLOCATE', 'ALTER', 'AND', 'ANY', 'ARE', 'AS', 'ASC', 'ASSERTION', 'AT', 'AUTHORIZATION', 'AVG', 'BEGIN', 'BETWEEN', 'BIGIDENTITY', 'BIT', 'BIT_LENGTH', 'BOTH', 'BY', 'CASCADE', 'CASCADED', 'CASE', 'CAST', 'CATALOG', 'CHAR', 'CHARACTER', 'CHAR_LENGTH', 'CHARACTER_LENGTH', 'CHECK', 'CLOSE', 'COALESCE', 'COLLATE', 'COLLATION', 'COLUMN', 'COMMIT', 'CONNECT', 'CONNECTION', 'CONSTRAINT', 'CONSTRAINTS', 'CONTINUE', 'CONVERT', 'CORRESPONDING', 'COUNT', 'CREATE', 'CROSS', 'CURRENT', 'CURRENT_DATE', 'CURRENT_TIME', 'CURRENT_TIMESTAMP', 'CURRENT_USER', 'CURSOR', 'DATE', 'DAY', 'DEALLOCATE', 'DEC', 'DECIMAL', 'DECLARE', 'DEFAULT', 'DEFERRABLE', 'DEFERRED', 'DELETE', 'DESC', 'DESCRIBE', 'DESCRIPTOR', 'DIAGNOSTICS', 'DISCONNECT', 'DISTINCT', 'DOMAIN', 'DOUBLE', 'DROP', 'ELSE', 'END', 'END-EXEC', 'ESCAPE', 'EXCEPT', 'EXCEPTION', 'EXEC', 'EXECUTE', 'EXISTS', 'EXTERNAL', 'EXTRACT', 'FALSE', 'FETCH', 'FIRST', 'FLOAT', 'FOR', 'FOREIGN', 'FOUND', 'FROM', 'FULL', 'FUNCTION', 'GET', 'GLOBAL', 'GO', 'GOTO', 'GRANT', 'GROUP', 'HAVING', 'HOUR', 'IDENTITY', 'IMMEDIATE', 'IN', 'INDICATOR', 'INITIALLY', 'INNER', 'INPUT', 'INSENSITIVE', 'INSERT', 'INT', 'INTEGER', 'INTERSECT', 'INTERVAL', 'INTO', 'IS', 'ISOLATION', 'JOIN', 'KEY', 'LANGUAGE', 'LAST', 'LEADING', 'LEFT', 'LEVEL', 'LIKE', 'LIMIT', 'LOCAL', 'LOWER', 'MASK', 'MATCH', 'MAX', 'MIN', 'MINUTE', 'MODULE', 'MONTH', 'NAMES', 'NATIONAL', 'NATURAL', 'NCHAR', 'NEXT', 'NO', 'NOT', 'NLONGVARCHAR', 'NULL', 'NULLIF', 'NUMERIC', 'NVARCHAR', 'OCTET_LENGTH', 'OF', 'OFFSET', 'ON', 'ONLY', 'OPEN', 'OPTION', 'OR', 'ORDER', 'OUTER', 'OUTPUT', 'OVERLAPS', 'PAD', 'PARTIAL', 'PASSWORD', 'POSITION', 'PRECISION', 'PREPARE', 'PRESERVE', 'PRIMARY', 'PRIOR', 'PRIVILEGES', 'PROCEDURE', 'PUBLIC', 'READ', 'REAL', 'REFERENCES', 'RELATIVE', 'RESTRICT', 'REVERSE', 'REVOKE', 'RIGHT', 'ROLLBACK', 'ROWS', 'SCHEMA', 'SCROLL', 'SECOND', 'SECTION', 'SELECT', 'SESSION', 'SESSION_USER', 'SET', 'SIZE', 'SMALLIDENTITY', 'SMALLINT', 'SOME', 'SPACE', 'SQL', 'SQLCODE', 'SQLERROR', 'SQLSTATE', 'STDEV', 'SUBSTRING', 'SUM', 'SYSTEM_USER', 'TABLE', 'TEMPORARY', 'THEN', 'TIME', 'TIMESTAMP', 'TIMEZONE_HOUR', 'TIMEZONE_MINUTE', 'TO', 'TRAILING', 'TRANSACTION', 'TRANSLATE', 'TRANSLATION', 'TRIM', 'TRUE', 'TRY_CAST', 'UNION', 'UNIQUE', 'UNKNOWN', 'UPDATE', 'UPPER', 'USAGE', 'USER', 'USING', 'VALUE', 'VALUES', 'VARCHAR', 'VARYING', 'VIEW', 'WHEN', 'WHENEVER', 'WHERE', 'WITH', 'WORK', 'WRITE', 'YEAR', 'ZONE'      ];
+                           
+                           
+                      
+    
+    for(i=0;i<arrayOfForbidden.length;i++){
+      
+      if(col_amo.value.includes(arrayOfForbidden[i]) || tab_nam.value.includes(arrayOfForbidden[i])){
+        
+                forbiddenChar=true;   passCard = 'red';      
+      } 
+      
+    
+      
+    }
+      for(i=0;i<arrayOfForbiddenKeyWords.length;i++){
+       if(col_amo.value.toUpperCase().toString()==arrayOfForbiddenKeyWords[i].toString() || tab_nam.value.toUpperCase().toString()==arrayOfForbiddenKeyWords[i].toString() ){
+       
+          forbiddenChar=true;       passCard = 'red';     
+        
+      }
+        }
+    
+    
+    if(col_amo.value<1){
+      
+     passCard = 'red';     alert('column amount range is 0-20'); 
+      
+      
+    }
+    
+ if(col_amo.value>20){
+      
+         passCard = 'red';       alert('column amount range is 0-20');
+
+      
+      
+    } 
+    
+if(forbiddenChar==true){
+      
+      
+      passCard = 'red';      alert('wrong table name format');
+      
+    }
+    
+    
+    
+    
+    /////IF EVERYTHING IS ALL RIGHT//////
+    
+    
+    
+    if(passCard=='green'){
+      
+      document.getElementById('buttonsDiv').innerHTML='<br><br><p style="font-size:20px;">You will have '+ col_amo.value.toString() +' columns.<br>'+
+  
+  
+ ' Now let\'s choose their type, length and names: </p><br><br>';
+       
+      
+    }
+    
+    if(passCard=='green'){
+      
+      
+      
+      
+      
+  
+    let colamo=parseInt(col_amo.value);
+
+    for(cols=0;cols<colamo;cols++){
+      
+      document.getElementById('buttonsDiv').innerHTML+= 
+        
+        `<input type="text" style="background-color:#e8ffc8;" id="col_name${cols+1}" placeholder="enter a name for column ${cols+1}"/><br><br>`;
+          col_name.push('col_name'+(cols+1));
+     
+      
+    }
+    
+    
+            for(selects=0;selects<colamo;selects++){
+              
+              
+                    select.push('select'+(selects+1));
+
+              
+      document.getElementById('buttonsDiv').innerHTML+= 
+        
+        `<p>select a type for column ${selects+1}:</p><select id="select${selects+1}">
+<option>CHARACTER</option>
+<option>VARCHAR</option>
+<option>BOOLEAN</option>
+<option>SMALLINT</option>
+<option>INT</option>
+<option>DECIMAL</option>
+<option>NUMERIC</option>
+<option>REAL</option>
+<option>FLOAT</option>
+<option>DOUBLE PRECISION</option>
+<option>DATE</option>
+<option>TIME</option>
+<option>TIMESTAMP</option>
+<option>CLOB</option>
+<option>BLOB</option>
+        
+  
+  
+  </select>`;
+         
+      
+    }
+     
+       document.getElementById('buttonsDiv').innerHTML+= '<br><br>';
+         
+        for(col_len_box_count=0;col_len_box_count<colamo;col_len_box_count++){
+      
+      document.getElementById('buttonsDiv').innerHTML+= 
+        
+        `<input type="text" style="background-color:#e0c8ff;" id="col_len${col_len_box_count+1}" placeholder="enter a length for column ${col_len_box_count+1}"/><br><br>`;
+         
+      col_len.push('col_len'+(col_len_box_count+1));
+    }
+
+    document.getElementById('buttonsDiv').innerHTML+= '<p style="font-size:15px;">Extra Options:</p><br><br>'+
+      
+      
+      `<select id="allownullselection" style="background-color:#d5e2ff"><option>ALLOW NULL (for all)</option><option>NO NULL (for all)</option></select>&nbsp;&nbsp;
+      <select id="autoincselection" style="background-color:#ebffd5"><option>AUTO-INCREMENT FIRST COLUMN</option><option>NO AUTO-INCRMENT</option></select> &nbsp;&nbsp;
+      <select id="firstcolprivforkeyselect" style="background-color:#adffd6"><option>1st COLUMN IS PRIMARY KEY</option><option>1st COLUMN IS FOREIGN KEY</option><option>1st COLUMN IS NONE</option></select> `;
+
+
+          document.getElementById('buttonsDiv').innerHTML+='<br><br><br><button onclick="build_the_query()" class="optionbuttons">Next</button>';
+      
+
+      
+      } //if passcard=green'in bitiş parantezi
+    
+  }
+  
+        
+       function build_the_query(){
+        
+     
+     
+     let txtareaqueryresultstable = document.getElementById('txtareaqueryresultstable');
+     let firstcolprivforkeyselect  = document.getElementById('firstcolprivforkeyselect');
+     let autoincselection  = document.getElementById('autoincselection');
+     let  allownullselection = document.getElementById('allownullselection');
+       
+         let null_status;
+         let priv_for_status;
+         let autoinc_status;
+         
+         let printoutthis = 'CREATE TABLE ';
+           
+//col_len; contains list of DOM ID's like 'col_len1' input element ID
+//select;     //contains the <select> ID's like 'select1'
+//col_name;   //contains the input element IDs such as 'col_name1' cuz why not? :) ~yunus
+      
+console.log(col_name);
+console.log(select);
+console.log(col_len);
+ console.log('col_len.length: '+ col_len.length);
+    
+  ////////////////GETTING COLUMN NAME INPUT VALUES AND PUTTING THEM IN AN ARRAY://////////////////////////////
+         
+       let columnNamesList = [];
+         
+         for(i=0; i< col_name.length; i++){
+           
+          let e = document.getElementById(col_name[i]).value;
+           
+           columnNamesList.push(e);
+           
+           
+           
+         }
+                   console.log(columnNamesList);
+
+         
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+         
+         
+         
+         
+        
+  ////////////////GETTING COLUMN LENGTH INPUT VALUES AND PUTTING THEM IN AN ARRAY://////////////////////////////
+         
+       let columnLengthList = [];
+         
+         for(i=0; i< col_len.length; i++){
+           
+          let e = document.getElementById(col_len[i]).value;
+           
+           columnLengthList.push(e);
+            
+         }
+          console.log(columnLengthList);
+         
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+         
+         
+        
+                  
+         
+        
+  ////////////////GETTING COLUMN TYPE INPUT VALUES AND PUTTING THEM IN AN ARRAY://////////////////////////////
+         
+       let columnTypeList = [];
+         
+         for(i=0; i< select.length; i++){
+           
+          let e = document.getElementById(select[i]).value;
+           
+           columnTypeList.push(e);
+           
+           
+         }
+         
+          console.log(columnTypeList);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+         
+         
+   
+         
+         
+         
+         if(allownullselection.value=="ALLOW NULL (for all)"){
+           
+           
+           null_status="allow";
+           console.log("null: "+null_status);
+           
+         }
+         
+         
+         else{ null_status="dontallow";
+              console.log("null: "+null_status);
+             
+             };
+         
+         
+         if(autoincselection.value=="NO AUTO-INCRMENT"){
+           
+           
+           autoinc_status="none";
+                         console.log("auto-increment:  "+autoinc_status);
+
+           
+         }
+         
+         
+         
+         else{ autoinc_status="yes";
+              console.log("auto-increment:  "+autoinc_status);
+
+             
+             
+             };
+         
+         if(firstcolprivforkeyselect.value=="1st COLUMN IS NONE"){
+           
+           priv_for_status="none";
+           
+            console.log("primary/foreign/other:  "+"first column is:"+priv_for_status);
+
+           
+           
+         }
+         
+         
+         
+         else{
+         
+         
+                  if(firstcolprivforkeyselect.value=="1st COLUMN IS FOREIGN KEY"){
+         
+                    priv_for_status="foreign";
+         console.log("primary/foreign/other:  "+"first column is:"+priv_for_status);
+         
+                     }
+           
+           
+                        else{ priv_for_status="primary";
+                             
+                            console.log("primary/foreign/other:  "+"first column is:"+priv_for_status);
+                            };
+           
+           
+             } ;
+          
+              
+         
+        let addTableNametoresult ="CREATE TABLE "+ tab_nam.value.toString() + '\n(\n';
+         
+         if(null_status=="dontallow"){
+           
+         insertNull = "NOT NULL";
+           
+         }else{
+           
+           insertNull="";
+           
+         }
+         
+         
+         if(autoinc_status=="yes"){
+           
+           insertAutoInc = "AUTO_INCREMENT";
+           
+         }else{
+           
+           insertAutoInc="";
+           
+         }
+         
+         addTableNametoresult +=` ${columnNamesList[0]} ${columnTypeList[0]}(${columnLengthList[0]}) ${insertNull} ${insertAutoInc},\n`;
+         
+        for(i=0;i<columnNamesList.length-1;i++){
+        addTableNametoresult +=` ${columnNamesList[i+1]} ${columnTypeList[i+1]}(${columnLengthList[i+1]}) ${insertNull},\n`;
+        }
+         
+       console.log(addTableNametoresult);
+        
+       //   document.getElementById('buttonsDiv').innerHTML= '<br><br><textarea id="txtareaqueryresultstable"></textarea>';
+      //  txtareaqueryresultstable.innerHTML=printoutthis + addTableNametoresult + addColumNames;
+         
+     
+         
+          /*  BLOCKAGE FOR UNFINISHED CODE  */  document.write(addTableNametoresult);
+         alert('well, this functionality isn\'nt finished yet. Sorry. -yunus');
+        
+        
+      }
+ 
+</script>
+
+<br /><br />
+
+<center><a href="https://github.com/yunusemrejr/####" style="background-color: black; border-radius: 10px; border: 1px solid black; color: white;"> &nbsp;&nbsp;&nbsp;View code on my GitHub&nbsp;&nbsp;&nbsp;</a></center>
+<br />
+<noscript>Your browser does not support JavaScript!</noscript>
