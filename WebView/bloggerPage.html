@@ -1,0 +1,449 @@
+
+ <link crossorigin='anonymous' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' integrity='sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==' referrerpolicy='no-referrer' rel='stylesheet'/>
+
+
+<style>
+   .menuItem{
+     
+     
+    display:none; 
+     
+        max-width:150px !important;
+        min-width:150px !important;
+   }
+   
+   #dropButton{
+     
+     
+    color:white;
+     background-color:#2E3C66;
+     border:0px solid #0000;
+     border-radius: 5px;
+     padding: 6px 12px 6px 12px;
+     font-size:20px;
+           
+     
+   }
+  
+  #dropdownDiv{
+    
+    display:none;
+    
+  }
+  
+  
+   #downloadForWindowsBtn{
+     border:1px solid #fff;
+     border-radius: 12px;
+     font-family:arial;
+     font-size:large;
+     padding:15px;
+     padding-left:70px;
+     text-align:center;
+      color:#fff;
+     background:#233cca url(https://i.ibb.co/1vjwTf5/Windows-Logo.png) no-repeat 15px center;
+  }
+  
+  #downloadForLinuxBtn{
+         border:1px solid #fff;
+     border-radius: 12px;
+     font-family:arial;
+     font-size:large;
+     padding:15px;
+     text-align:center;
+      color:#fff;
+         padding-left:70px;
+         background:#000 url(https://i.ibb.co/Rh8PMDG/linux-logo-logo-brands-for-0.png) no-repeat 15px center;
+
+
+  }
+  
+  #btnDisplayWebDemo{
+         border:1px solid #fff;
+     border-radius: 12px;
+     font-family:arial;
+     font-size:large;
+     padding:15px;
+         padding-left:70px;
+
+     text-align:center;
+          background:#6b0000 url(https://i.ibb.co/Zzh5MRz/580b585b2edbce24c47b2be1.png) no-repeat 15px center;
+
+     color:#fff;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   #downloadForWindowsBtn:hover{
+     border:1.4px solid #fff;
+     border-radius: 12px;
+     font-family:arial;
+     font-size:18.3px;
+     padding:15px;
+     padding-left:70px;
+     text-align:center;
+      color:#fff;
+     background:#233cca url(https://i.ibb.co/1vjwTf5/Windows-Logo.png) no-repeat 15px center;
+  }
+  
+  #downloadForLinuxBtn:hover{
+     border:1.4px solid #fff;
+     border-radius: 12px;
+     font-family:arial;
+     font-size:18.3px;
+     padding:15px;
+     text-align:center;
+      color:#fff;
+         padding-left:70px;
+         background:#000 url(https://i.ibb.co/Rh8PMDG/linux-logo-logo-brands-for-0.png) no-repeat 15px center;
+
+
+  }
+  
+  #btnDisplayWebDemo:hover{
+     border:1.4px solid #fff;
+     border-radius: 12px;
+     font-family:arial;
+     font-size:18.3px;
+     padding:15px;
+         padding-left:70px;
+
+     text-align:center;
+          background:#6b0000 url(https://i.ibb.co/Zzh5MRz/580b585b2edbce24c47b2be1.png) no-repeat 15px center;
+
+     color:#fff;
+  }
+</style>
+
+<script>
+  
+  let binaryElement = 0;
+  
+       document.getElementById('main-wrapper').style.display='';
+ 
+     
+
+         let postHeaderClass = document.getElementsByClassName('post-header');
+       let ourpostHeaderElement = postHeaderClass[0];
+  
+  
+        
+function viewWebDemo(){
+  
+  document.getElementById('dropdownDiv').style.display='block';
+    document.getElementById('buttons1div').style.display='none';
+ 
+
+  
+}
+ 
+ourpostHeaderElement.innerHTML='<div style="padding-top:1vw;color: white; text-align: center;  text-shadow: orange 1px 1px 1px, blue 0px 1px 1px, rgb(0, 0, 0) 2px 1px 1px;"> <h1 style="color:white; " class="post-title"><i class="fa-solid fa-database"></i> &nbsp; SQL Query Builder</h1><p>SQL Query Builder is a tool programmed by Yunus Emre Vurgun, that helps you build SQL queries.</p>'+
+  
+  '<div id="buttons1div"><br/><br/><br/><button id="downloadForWindowsBtn" onclick="downloadForWindows()">Download for Windows</button><br/>'+
+    '<br/><button id="downloadForLinuxBtn" onclick="downloadForLinux()">Download for Linux</button><br/>'+
+
+  
+ '<br/><button id="btnDisplayWebDemo" onclick="viewWebDemo()">*view uncomplete web version</button><br/></div>'+
+  
+  '<br><br> <div id="dropdownDiv"><button id="dropButton"><i class="fa-solid fa-circle-chevron-down"></i> Select Command Type</button><div id="dropdownContent"><br><br>'+
+  
+  '<button onclick="DDLdrop()"  class="menuItem">DDL</button><br><div id="DDLbox"></div>'+
+  
+ '<button onclick="DCLdrop()"  class="menuItem">DCL</button><br><div id="DCLbox"></div>'
+  
++ '<button onclick="DMLdrop()"  class="menuItem">DML</button><br><div id="DMLbox"></div>'
+  
++ '<button onclick="TCLdrop()"  class="menuItem">TCL</button><br><div id="TCLbox"></div>'
+  
++  '<button onclick="DQLdrop()"  class="menuItem">DQL</button><br><div id="DQLbox"></div>'
+  
+  
+  
++'  </div></div>'
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  +' </div>';
+ 
+
+  
+document.getElementById('dropButton').addEventListener("click", function() {
+
+
+
+    if (binaryElement==0) {
+
+
+        let displayDropEls = document.getElementsByClassName('menuItem');
+
+
+        for (i = 0; i < displayDropEls.length; i++) {
+
+            let each = displayDropEls[i];
+
+            each.style.display = 'block';
+
+            each.style.color = '#fff';
+
+            each.style.textDecoration = 'underline';
+
+            each.style.backgroundColor = '#12376d';
+
+            each.style.width = '10%';
+
+            each.style.textAlign = 'center';
+
+            each.style.margin = 'auto';
+
+            each.style.padding = '6px 12px 6px 12px';
+
+            each.style.borderRadius = '15px';
+
+            each.style.textShadow = '0 0 0 #000, 0 0 0 #000';
+        }
+    document.getElementById('dropButton').innerHTML= '<i class="fa-solid fa-circle-chevron-up"></i> Select Command Type';
+
+      
+              document.getElementById('DDLbox').style.display='block';
+        document.getElementById('DCLbox').style.display='block';
+        document.getElementById('DMLbox').style.display='block';
+        document.getElementById('TCLbox').style.display='block';
+        document.getElementById('DQLbox').style.display='block';
+            
+      binaryElement = 1;
+      
+    } else {
+       
+
+        let displayDropEls = document.getElementsByClassName('menuItem');
+
+        for (i = 0; i < displayDropEls.length; i++) {
+
+            let each = displayDropEls[i];
+
+            each.style.display = 'none';
+        }
+      
+      
+        document.getElementById('DDLbox').style.display='none';
+        document.getElementById('DCLbox').style.display='none';
+        document.getElementById('DMLbox').style.display='none';
+        document.getElementById('TCLbox').style.display='none';
+        document.getElementById('DQLbox').style.display='none';
+
+
+          document.getElementById('dropButton').innerHTML= '<i class="fa-solid fa-circle-chevron-down"></i> Select Command Type';
+
+      
+      binaryElement = 0;
+
+
+
+    }
+
+
+
+
+});
+  
+  
+  
+  
+  ///////////
+  
+  
+  
+
+
+  
+function DDLitemHide(){document.getElementById('DDLdropDiv').style.display='none'}
+  
+function DDLdrop(){
+let getBoxDDLdrop = document.getElementById('DDLbox');
+  
+ 
+     getBoxDDLdrop.innerHTML = 
+  
+  "<div id='DDLdropDiv'><a href='#' class='DDLitems' style='color:white;background-color:transparent;' id='create'>Create</a><br>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;' id='drop' class='DDLitems'>Drop</a><br>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;' id='alter' class='DDLitems'>Alter</a><br>"+
+    
+      "<a href='#' style='color:white;background-color:transparent;'  id='truncate' class='DDLitems'>Truncate</a><br><br>"+
+    
+       "<button style='background-color:transparent;border:0px;color:white;'  onclick='DDLitemHide()' class='DDLitems'><i class='fa-solid fa-circle-chevron-up'></i></button><br><br></div>";
+  
+    
+   document.getElementById('create').addEventListener('click', function(){window.location.href='https://tools.yunusemrevurgun.com/p/sql-query-builder-create.html'});
+    document.getElementById('drop').addEventListener('click', function(){alert()});
+  document.getElementById('alter').addEventListener('click', function(){alert()});
+  document.getElementById('truncate').addEventListener('click', function(){alert()});
+  
+
+}
+  
+  
+  
+  
+  
+function DCLitemHide(){document.getElementById('DCLdropDiv').style.display='none'}
+
+  
+function DCLdrop(){
+let getBoxDCLdrop = document.getElementById('DCLbox');
+  
+    
+ 
+    
+      getBoxDCLdrop.innerHTML = 
+  
+  "<div id='DCLdropDiv'>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;'  id='grant' class='DCLitems'>Grant</a><br>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;'  id='revoke' class='DCLitems'>Revoke</a><br><br>"+
+    
+  
+    
+       "<button style='background-color:transparent;border:0px;color:white;'  onclick='DCLitemHide()' class='DCLitems'><i class='fa-solid fa-circle-chevron-up'></i></button><br><br></div>";
+  
+  
+  
+ document.getElementById('grant').addEventListener('click', function(){alert()});
+  document.getElementById('revoke').addEventListener('click', function(){alert()});
+ 
+
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  function DMLitemHide(){document.getElementById('DMLdropDiv').style.display='none'}
+
+function DMLdrop(){
+let getBoxDMLdrop = document.getElementById('DMLbox');
+  
+    
+     
+      getBoxDMLdrop.innerHTML = 
+  
+  "<div id='DMLdropDiv'><a href='#' class='DMLitems' style='color:white;background-color:transparent;' id='insert'>Insert</a><br>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;'  id='update' class='DMLitems'>Update</a><br>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;'  id='delete' class='DMLitems'>Delete</a><br><br>"+
+    
+     
+       "<button style='background-color:transparent;border:0px;color:white;'  onclick='DMLitemHide()' class='DMLitems'><i class='fa-solid fa-circle-chevron-up'></i></button><br><br></div>";
+  document.getElementById('insert').addEventListener('click', function(){alert()});
+  
+  document.getElementById('update').addEventListener('click', function(){alert()});
+  document.getElementById('delete').addEventListener('click', function(){alert()});
+ 
+
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  function TCLitemHide(){document.getElementById('TCLdropDiv').style.display='none'}
+
+  
+function TCLdrop(){
+let getBoxTCLdrop = document.getElementById('TCLbox');
+    
+  
+      getBoxTCLdrop.innerHTML =   "<div id='TCLdropDiv'><a href='#' class='TCLitems' style='color:white;background-color:transparent;' id='commit'>Commit</a><br>"+
+    
+  "<a href='#' style='color:white;background-color:transparent;'  id='rollback' class='TCLitems'>Rollback</a><br>"+
+     
+      "<a href='#' style='color:white;background-color:transparent;'  id='savepoint' class='TCLitems'>Save Point</a><br><br>"+
+    
+       "<button style='background-color:transparent;border:0px;color:white;'  onclick='TCLitemHide()' class='TCLitems'><i class='fa-solid fa-circle-chevron-up'></i></button><br><br></div>";
+    
+    
+ 
+  
+ document.getElementById('commit').addEventListener('click', function(){alert()});
+  document.getElementById('rollback').addEventListener('click', function(){alert()});
+  document.getElementById('savepoint').addEventListener('click', function(){alert()});
+  
+
+
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  function DQLitemHide(){document.getElementById('DQLdropDiv').style.display='none'}
+
+function DQLdrop(){
+let getBoxDQLdrop = document.getElementById('DQLbox');
+    
+     
+       getBoxDQLdrop.innerHTML = 
+   "<div id='DQLdropDiv'>"+
+ 
+    
+      "<a href='#' style='color:white;background-color:transparent;'  id='select' class='DQLitems'>Select</a><br><br>"+
+    
+       "<button style='background-color:transparent;border:0px;color:white;'  onclick='DQLitemHide()' class='DQLitems'><i class='fa-solid fa-circle-chevron-up'></i></button><br><br></div>";
+
+ 
+  document.getElementById('select').addEventListener('click', function(){alert()});
+
+
+}
+  
+  
+  
+  
+ 
+
+
+  
+ 
+</script>
+
+<br/><br/>
+
+<center><a style='color:white;background-color:black;border:1px solid black;border-radius:10px;' href='https://github.com/yunusemrejr/JS-SQL-QUERY-BUILDER-WEB-DESKTOP/tree/main'> &nbsp;&nbsp;&nbsp;View code on my GitHub&nbsp;&nbsp;&nbsp;</a></center>
+<br/>
+<noscript>Your browser does not support JavaScript!</noscript>
